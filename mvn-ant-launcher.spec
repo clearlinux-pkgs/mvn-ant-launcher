@@ -4,10 +4,12 @@
 #
 Name     : mvn-ant-launcher
 Version  : 1.9.3
-Release  : 1
+Release  : 2
 URL      : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.jar
 Source0  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.jar
 Source1  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.pom
+Source2  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar
+Source3  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -35,6 +37,12 @@ cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-laun
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.3
 cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.3
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4
+
 
 %files
 %defattr(-,root,root,-)
@@ -43,3 +51,5 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-laun
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.jar
 /usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.pom
+/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar
+/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom
