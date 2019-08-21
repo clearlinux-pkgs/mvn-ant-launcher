@@ -4,20 +4,22 @@
 #
 Name     : mvn-ant-launcher
 Version  : 1.9.3
-Release  : 3
+Release  : 4
 URL      : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.jar
 Source0  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.jar
-Source1  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.8.1/ant-launcher-1.8.1.jar
-Source2  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.8.1/ant-launcher-1.8.1.pom
-Source3  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.jar
-Source4  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.pom
-Source5  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.pom
-Source6  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar
-Source7  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom
+Source1  : https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4-sources.jar
+Source2  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.8.1/ant-launcher-1.8.1.jar
+Source3  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.8.1/ant-launcher-1.8.1.pom
+Source4  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.jar
+Source5  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.pom
+Source6  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.pom
+Source7  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar
+Source8  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-ant-launcher-data = %{version}-%{release}
+Requires: mvn-ant-launcher-license = %{version}-%{release}
 
 %description
 No detailed description available
@@ -30,34 +32,48 @@ Group: Data
 data components for the mvn-ant-launcher package.
 
 
+%package license
+Summary: license components for the mvn-ant-launcher package.
+Group: Default
+
+%description license
+license components for the mvn-ant-launcher package.
+
+
 %prep
+%setup -q -n META-INF
 
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/package-licenses/mvn-ant-launcher
+cp LICENSE.txt %{buildroot}/usr/share/package-licenses/mvn-ant-launcher/LICENSE.txt
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.3
 cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.jar
 
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.1
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.1/ant-launcher-1.8.1.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4-sources.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.1
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.1/ant-launcher-1.8.1.pom
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.1/ant-launcher-1.8.1.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.1
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.1/ant-launcher-1.8.1.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.2
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.jar
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.2
-cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.pom
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.3
-cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.pom
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4
-cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar
+cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4
-cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom
 
 
 %files
@@ -71,5 +87,10 @@ cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/org/apache/ant/ant-laun
 /usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.pom
 /usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.jar
 /usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.pom
+/usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4-sources.jar
 /usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar
 /usr/share/java/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/mvn-ant-launcher/LICENSE.txt
