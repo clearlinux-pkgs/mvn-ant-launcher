@@ -4,7 +4,7 @@
 #
 Name     : mvn-ant-launcher
 Version  : 1.9.3
-Release  : 5
+Release  : 6
 URL      : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.jar
 Source0  : https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.jar
 Source1  : https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4-sources.jar
